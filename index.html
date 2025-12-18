@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>俄罗斯方块小游戏</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <h1>俄罗斯方块小游戏</h1>
+    <div class="game-container">
+      <div class="left-panel">
+        <canvas id="game" width="240" height="480"></canvas>
+      </div>
+      <div class="right-panel">
+        <div class="panel-box">
+          <h2>得分</h2>
+          <div id="score" class="stat-value">0</div>
+        </div>
+        <div class="panel-box">
+          <h2>行数</h2>
+          <div id="lines" class="stat-value">0</div>
+        </div>
+        <div class="panel-box">
+          <h2>等级</h2>
+          <div id="level" class="stat-value">1</div>
+        </div>
+        <div class="panel-box">
+          <h2>下一个方块</h2>
+          <canvas id="next" width="120" height="120"></canvas>
+        </div>
+
+        <div class="panel-box controls-box">
+          <h2>控制</h2>
+          <div class="buttons">
+            <button id="btn-start">开始 / 重新开始</button>
+            <button id="btn-pause">暂停 / 继续</button>
+          </div>
+          <div class="keys">
+            <p>← →：移动</p>
+            <p>↑：旋转</p>
+            <p>↓：加速下落</p>
+            <p>空格：快速下落到底</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <span>本地网页运行，无需联网。</span>
+    </footer>
+  </div>
+
+  <script src="tetris.js"></script>
+</body>
+</html>
+
+
