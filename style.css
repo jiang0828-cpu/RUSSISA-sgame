@@ -138,6 +138,46 @@ button:active {
   line-height: 1.5;
 }
 
+/* 触摸按键区域（手机控制） */
+.touch-controls {
+  display: none;
+  margin-top: 12px;
+  width: 100%;
+  max-width: 260px;
+}
+
+.touch-dpad,
+.touch-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.touch-btn {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #2f6dfd, #0fd3ff);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(0, 200, 255, 0.6);
+  touch-action: manipulation;
+}
+
+.touch-btn.primary {
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+}
+
+.touch-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
 footer {
   margin-top: 14px;
   font-size: 12px;
@@ -154,6 +194,11 @@ footer {
   .right-panel {
     width: 100%;
   }
+
+  .touch-controls {
+    display: block;
+  }
 }
+
 
 

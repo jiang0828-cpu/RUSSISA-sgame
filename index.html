@@ -12,6 +12,17 @@
     <div class="game-container">
       <div class="left-panel">
         <canvas id="game" width="240" height="480"></canvas>
+        <div class="touch-controls" aria-label="触摸控制区">
+          <div class="touch-dpad">
+            <button class="touch-btn" id="btn-left">←</button>
+            <button class="touch-btn" id="btn-right">→</button>
+            <button class="touch-btn" id="btn-down">↓</button>
+          </div>
+          <div class="touch-actions">
+            <button class="touch-btn primary" id="btn-rotate">旋转</button>
+            <button class="touch-btn" id="btn-hard-drop">快速落下</button>
+          </div>
+        </div>
       </div>
       <div class="right-panel">
         <div class="panel-box">
@@ -55,5 +66,6 @@
   <script src="tetris.js"></script>
 </body>
 </html>
+
 
 
