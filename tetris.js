@@ -79,6 +79,10 @@ let gameRunning = false;
 let gamePaused = false;
 let gameOver = false;
 
+function canControl() {
+  return gameRunning && !gamePaused && !gameOver;
+}
+
 // 工具函数
 function createEmptyBoard() {
   const b = [];
@@ -463,7 +467,7 @@ function togglePause() {
 
 // 键盘控制
 window.addEventListener("keydown", (e) => {
-  if (!gameRunning || gamePaused || gameOver) return;
+  if (!canControl()) return;
 
   switch (e.key) {
     case "ArrowLeft":
@@ -500,10 +504,41 @@ document.getElementById("btn-pause").addEventListener("click", () => {
   togglePause();
 });
 
+// 触摸按钮（手机控制）
+const btnLeft = document.getElementById("btn-left");
+const btnRight = document.getElementById("btn-right");
+const btnDown = document.getElementById("btn-down");
+const btnRotate = document.getElementById("btn-rotate");
+const btnHardDrop = document.getElementById("btn-hard-drop");
+
+function bindTouchButton(el, action) {
+  if (!el) return;
+  const handler = (e) => {
+    e.preventDefault();
+    if (!canControl()) return;
+    action();
+  };
+  el.addEventListener("click", handler);
+  el.addEventListener("touchstart", handler, { passive: false });
+}
+
+bindTouchButton(btnLeft, () => playerMove(-1));
+bindTouchButton(btnRight, () => playerMove(1));
+bindTouchButton(btnDown, () => {
+  playerSoftDrop();
+  dropCounter = 0;
+});
+bindTouchButton(btnRotate, () => playerRotate());
+bindTouchButton(btnHardDrop, () => {
+  hardDrop();
+  dropCounter = 0;
+});
+
 // 初始绘制
 drawBoard();
 updateStats();
 drawNext();
 requestAnimationFrame(update);
+
 
 
